@@ -25,6 +25,12 @@
 - [**读推理轨迹,不只读答案**](practices/read-the-reasoning-trace.md) — 在模型作答前中断它,把 thinking traces 当成设计反馈来读。
 - [**把指令切成按需加载的 skill**](practices/on-demand-skill-loading.md) — 用触发式描述替代越写越长的全局提示词,让上下文默认保持干净。
 
+### 多代理编排 (Multi-Agent Orchestration)
+
+一个 agent 干不完的活怎么拆出去,以及拆出去之后怎么不失控。
+
+- [**让本地 agent 只当协调者,把活派给云端子代理**](practices/coordinator-cloud-subagents.md) — 协调者不写代码,只拆任务、发任务、验收;真正的收益是上下文隔离而非并行。含七种失败模式,以及 Anthropic 与 Cognition 两家相反立场的调和。
+
 ## 说明
 
 - 内容整理自公开推文,**版权归原作者**;本仓库只做摘述、归纳与工程化补充,不转载原文全文。
