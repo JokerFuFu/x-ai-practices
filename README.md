@@ -24,6 +24,7 @@
 - [**异构终审闸门**](practices/cross-vendor-judge-gate.md) — 让另一家供应商的模型给你的产出打分,低分打回重跑。用来对抗单一模型自评时的同源偏见。
 - [**读推理轨迹,不只读答案**](practices/read-the-reasoning-trace.md) — 在模型作答前中断它,把 thinking traces 当成设计反馈来读。
 - [**把指令切成按需加载的 skill**](practices/on-demand-skill-loading.md) — 用触发式描述替代越写越长的全局提示词,让上下文默认保持干净。
+- [**把审阅搬到产物上,而不是留在对话里**](practices/visual-review-loop.md) — 在浏览器里直接改字 + 划词批注,把反馈从「描述」降级成「已完成的编辑」,删掉 agent 理解这一环。含阻塞式 poll 如何真正闭合人在回路,以及 npm 版本落后三周的安装坑。
 
 ### 多代理编排 (Multi-Agent Orchestration)
 
