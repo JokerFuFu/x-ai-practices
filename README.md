@@ -21,7 +21,7 @@
 
 比起把提示词写得更好听,更有效的往往是改流程本身。
 
-- [**把外层循环交出去之前,先补上三样东西**](practices/outer-loop-three-parts.md) — 真实的停止判据、上下文修剪、独立的检查者。核心一条:`passes` 不能是 agent 自己能改的字符串,得是 checker 的退出码。另附收敛护栏(单调性检查 + 卡死升级),专治「循环跑不完」。
+- [**把外层循环交出去之前,先补上三样东西**](practices/outer-loop-three-parts.md) — 真实的停止判据、上下文修剪、独立的检查者。核心一条:`passes` 不能是 agent 自己能改的字符串,得是 checker 的退出码。另附收敛护栏(单调性检查 + 卡死升级)专治「循环跑不完」,以及**第零步:按下 goal 之前先让它做一轮调研**——目标定不准的话,停止判据再硬,验的也只是一件错事。
 - [**异构终审闸门**](practices/cross-vendor-judge-gate.md) — 让另一家供应商的模型给你的产出打分,低分打回重跑。用来对抗单一模型自评时的同源偏见。
 - [**读推理轨迹,不只读答案**](practices/read-the-reasoning-trace.md) — 在模型作答前中断它,把 thinking traces 当成设计反馈来读。
 - [**把指令切成按需加载的 skill**](practices/on-demand-skill-loading.md) — 用触发式描述替代越写越长的全局提示词,让上下文默认保持干净。
