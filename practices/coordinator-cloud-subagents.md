@@ -97,6 +97,22 @@ Anthropic 那篇里给的子任务描述四要素最值得抄（官方口径）�
 
 **边界：** 上述数字出自单个用户的本地记录，**未经第三方或官方核实**，不同工具、不同版本的扇出行为差别很大，别把 85% 当成普遍值；把它当成一个**该去自查的方向**，不是一个该去引用的结论。这条也不构成「别用子代理」——本文整篇的立场没变，变的是「派出去之前先知道会被复制几份」。
 
+### 2026-08-21 增补：官方给了第一诊断入口
+
+上面那一节整节都建立在**一个用户的本地账本**上，所以它当时只能算"该去自查的方向"。这一天官方那侧补上了入口——Claude Code 负责人在两位用户追问"额度为什么烧这么快"时给了同一个答案：
+
+> 跑 `/usage` 看详细分解。绝大多数情况是三个原因之一：**极端并行（extreme parallelism）、跑飞的循环（runaway loop）、或某个效率极差的 skill/plugin。**
+
+这条之所以值得记进来，不在于它给了新技巧，而在于它**改变了这类问题的性质**：
+
+- **"额度不够用"从一句抱怨变成了一个有诊断树的工程问题。** 三个候选原因是互斥且可分别验证的——并行看的是同时有几个子代理在跑，循环看的是同一个工具调用是不是在重复，低效 skill/plugin 看的是单次调用返回了多少不需要的内容。
+- **官方把"极端并行"列在第一位**，与上一节那份个人取证指向同一个方向。两个独立来源（一个官方、一个用户账本）都落在扇出上，这比任何一方单独说都更值得当真。
+- **它给了排查的起点，没给结论。** `/usage` 只告诉你钱花在哪，不告诉你该不该花——判断仍然是你的：上一节那四步排查动作接在这一步后面用。
+
+**顺序建议：** 先 `/usage` 看分项（1 分钟，官方口径），再按上一节四步查扇出（半小时，需要看日志）。**别跳过第一步直接改配置**——如果你的消耗其实是一个跑飞的循环，限制子代理数量一点用都没有。
+
+**边界：** 这是员工在推文回复里给的口径，不是文档，也没有说明 `/usage` 在各订阅档位下的分项粒度；`/usage` 是 Claude Code 的命令，其他工具需要找各自的等价物（有没有按子代理分项的用量视图，本身就是选型时该问的一个问题）。
+
 ## 反方立场：Cognition 说别建多代理
 
 引用这套模式之前，应该知道有一份影响力很大的相反主张。Cognition 的 *Don't Build Multi-Agents* 给的两条原则是：
@@ -129,4 +145,4 @@ Anthropic 那篇里给的子任务描述四要素最值得抄（官方口径）�
 
 ---
 
-*采集于 2026-08-07，2026-08-20 增补「上下文隔离的反面」一节。出处：[@poteto 原推](https://x.com/poteto/status/2084844251100438890) 及其回复串；补充材料来自 [Anthropic 的多代理研究系统工程博客](https://www.anthropic.com/engineering/multi-agent-research-system)、[Cognition《Don't Build Multi-Agents》](https://cognition.com/blog/dont-build-multi-agents)、[Cursor 关于云端 agent 的经验总结](https://cursor.com/blog/cloud-agent-lessons) 与同期公开讨论。2026-08-20 增补部分出处：[@Breeze1055Liu 原推](https://x.com/Breeze1055Liu/status/2090407566883058064)（采集于 2026-08-20）。*
+*采集于 2026-08-07，2026-08-20 增补「上下文隔离的反面」一节，2026-08-21 增补「官方给了第一诊断入口」一节。出处：[@poteto 原推](https://x.com/poteto/status/2084844251100438890) 及其回复串；补充材料来自 [Anthropic 的多代理研究系统工程博客](https://www.anthropic.com/engineering/multi-agent-research-system)、[Cognition《Don't Build Multi-Agents》](https://cognition.com/blog/dont-build-multi-agents)、[Cursor 关于云端 agent 的经验总结](https://cursor.com/blog/cloud-agent-lessons) 与同期公开讨论。2026-08-20 增补部分出处：[@Breeze1055Liu 原推](https://x.com/Breeze1055Liu/status/2090407566883058064)（采集于 2026-08-20）；2026-08-21 增补部分出处：[@bcherny 原推](https://x.com/bcherny/status/2090490321893499335) 与[另一条同问回复](https://x.com/bcherny/status/2089924701691015577)（采集于 2026-08-21）。*
