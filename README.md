@@ -23,6 +23,7 @@
 
 - [**把外层循环交出去之前,先补上三样东西**](practices/outer-loop-three-parts.md) — 真实的停止判据、上下文修剪、独立的检查者。核心一条:`passes` 不能是 agent 自己能改的字符串,得是 checker 的退出码。另附收敛护栏(单调性检查 + 卡死升级)专治「循环跑不完」,以及**第零步:按下 goal 之前先让它做一轮调研**——目标定不准的话,停止判据再硬,验的也只是一件错事。
 - [**从零搭 Agent Harness：先建三模块，再加可观测回归**](practices/build-minimal-agent-harness.md) — 用 LLM、工具、Agent Loop 三模块理解基本机制；先记录模型与工具 I/O，再用固定小任务对比轮数、token、耗时和失败类型，最后才按真实缺口添加 Skill、Memory、MCP 与 Subagent。
+- [**给工程 Agent 分层反馈,别只报一个总分**](practices/layered-feedback-for-engineering-agents.md) — 先设正确性、系统行为和条件化性能三层便宜且可核验的反馈,再让 Agent 优化;人保留目标设定和高风险变更审查。来自 GLM 推理基础设施的实跑经验,性能数字为作者披露。
 - [**异构终审闸门**](practices/cross-vendor-judge-gate.md) — 让另一家供应商的模型给你的产出打分,低分打回重跑。用来对抗单一模型自评时的同源偏见。
 - [**读推理轨迹,不只读答案**](practices/read-the-reasoning-trace.md) — 在模型作答前中断它,把 thinking traces 当成设计反馈来读。
 - [**把指令切成按需加载的 skill**](practices/on-demand-skill-loading.md) — 用触发式描述替代越写越长的全局提示词,让上下文默认保持干净。
