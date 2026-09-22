@@ -53,6 +53,7 @@
 模型不公开身份、评测结果来源不明时,先找可重复的外部证据,再讨论归因。
 
 - [**用 token 差分给匿名模型做词表指纹**](practices/tokenizer-fingerprint-by-token-delta.md) — 固定请求外壳,用“基准文本”与“基准文本 + 特征后缀”的 `prompt_tokens` 差值消掉固定系统提示词,再与多个官方端点交叉比较。含多语言探针矩阵、置信度分级与边界:它最多支持“共享 tokenizer / 同一词表家族”,不能单独证明具体模型身份。
+- [**换 Agent 模型,先跑一天真实工作流**](practices/evaluate-agent-models-on-real-work.md) — 固定 harness、系统提示和任务队列,连续记录提示遵循、行为稳定性、行动保守度、质量、时延与额度消耗；公开 benchmark 和 3D demo 只作线索,不替代生产任务观察。
 
 ## 说明
 
