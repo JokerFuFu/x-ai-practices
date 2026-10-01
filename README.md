@@ -42,6 +42,12 @@
 - [**用硬指标把 AI 广告生产变成可收敛的制造线**](practices/ai-ad-manufacturing-loop.md) — 从已验证内容提取钩子，批量生成受控变量，用 CTR、3 秒播放率和 CAC 小流量筛选，未达标时由创意负责人介入；产量只有在单位经济不恶化时才扩张。
 - [**私有开发,公开快照**](practices/private-development-public-snapshots.md) — 完整设计文档、测试、形式化规范与实验脚本留在私有开发仓库,公开仓库只接收经过验证的发布快照。把 `wiki/design/` 的持续审阅变成主要开发活动,用 2–10 台临时云主机做实验、2–4 个编码 Agent 会话并行;含快照发布清单、外部贡献入口和防止私有仓库变成单点真相的边界。
 
+### 安全与权限 (Security & Permissions)
+
+Agent 能做什么，应该由沙箱和审批决定，而不是由提示词里的一句“不要乱动”决定。
+
+- [**Agent 沙箱默认拒绝：任务文件进，密钥与任意网络不进**](practices/agent-sandbox-default-deny.md) — 任务文件白名单、凭据 broker、网络出站 allowlist、沙箱外审计与按动作审批；任务完成后撤销临时权限，并用 checker 核对结果和访问边界。
+
 ### 多代理编排 (Multi-Agent Orchestration)
 
 一个 agent 干不完的活怎么拆出去,以及拆出去之后怎么不失控。
