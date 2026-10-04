@@ -47,7 +47,7 @@
 
 Agent 能做什么，应该由沙箱和审批决定，而不是由提示词里的一句“不要乱动”决定。
 
-- [**Agent 沙箱默认拒绝：任务文件进，密钥与任意网络不进**](practices/agent-sandbox-default-deny.md) — 任务文件白名单、凭据 broker、网络出站 allowlist、沙箱外审计与按动作审批；任务完成后撤销临时权限，并用 checker 核对结果和访问边界。
+- [**Agent 沙箱默认拒绝：任务文件进，密钥与任意网络不进**](practices/agent-sandbox-default-deny.md) — 任务文件白名单、凭据 broker、网络出站 allowlist、沙箱外审计与按动作审批；任务完成后撤销临时权限，并用 checker 核对结果和访问边界。**2026-10-04 增补：**必须使用远程推理时，再把身份泄漏拆成内容最小化、支付去身份和网络去身份三层，并用对照任务验收泄漏字段、质量、延迟和费用。
 
 ### 多代理编排 (Multi-Agent Orchestration)
 
